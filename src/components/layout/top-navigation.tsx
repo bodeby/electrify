@@ -38,7 +38,7 @@ export default function TopNavigation() {
           <span className="sr-only">Acme Inc</span>
         </Link>
         <Link
-          href="/dashboard"
+          href="/"
           className={
             "text-muted-foreground transition-colors hover:text-foreground"
           }
