@@ -2,6 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+
+// clerk
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+
+// shadcn
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,13 +16,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+
+// icons
 import { CircleUser, Menu, Search } from "lucide-react";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import { useTheme } from "next-themes";
-
-import { Button } from "../ui/button";
 
 export default function TopNavigation() {
   const { setTheme } = useTheme();
@@ -126,7 +133,7 @@ export default function TopNavigation() {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <DropdownMenu>
+        {/* <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">
               <CircleUser className="h-5 w-5" />
@@ -141,7 +148,14 @@ export default function TopNavigation() {
             <DropdownMenuSeparator />
             <DropdownMenuItem>Logout</DropdownMenuItem>
           </DropdownMenuContent>
-        </DropdownMenu>
+        </DropdownMenu> */}
+
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </div>
     </header>
   );
